@@ -1,0 +1,1 @@
+export const COUNT_BOOKS_IN_LIBRARY = 300;
