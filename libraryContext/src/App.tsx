@@ -10,7 +10,7 @@ const App = () => {
         <LibraryProvider>
             <div>
                 <TestRender />
-                <h1>Library System</h1>
+                <h1>Library System Context</h1>
                 <Library />
                 <hr/>
                 <Librarian />
