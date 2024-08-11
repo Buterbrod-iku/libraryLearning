@@ -10,6 +10,9 @@ export interface ILibraryContext {
     shelves: IBook[][][];
     issuedBooks: IIssuedBooks[];
     unplacedBooks: IBook[];
+}
+
+export interface ILibraryActions {
     setShelves: any;
     setIssuedBooks: any;
     setUnplacedBooks: any;

@@ -1,8 +1,10 @@
 import { createContext, useState } from 'react';
 import {generateBooks, IBook} from "../../Helper/generateBooks.ts";
-import {ILibraryContext} from "./Interface/ILibraryContext.ts";
+import {ILibraryActions, ILibraryContext} from "./Interface/ILibraryContext.ts";
 
 export const LibraryContext = createContext<ILibraryContext>({});
+
+export let libraryActions: ILibraryActions
 
 export const LibraryProvider = ({ children }) => {
     const [books] = useState<IBook[]>(generateBooks());
@@ -15,14 +17,19 @@ export const LibraryProvider = ({ children }) => {
         shelves,
         issuedBooks,
         unplacedBooks,
-        setShelves,
-        setIssuedBooks,
-        setUnplacedBooks,
     };
 
-    console.log('shelves',shelves)
-    console.log('issuedBooks',issuedBooks)
-    console.log('unplacedBooks',unplacedBooks)
+    libraryActions = {
+        setShelves: (newShelves: any) => {
+            setShelves(newShelves)
+        },
+        setIssuedBooks: (newIssuedBooks: any) => {
+            setIssuedBooks(newIssuedBooks)
+        },
+        setUnplacedBooks: (newUnplacedBooks: any) => {
+            setUnplacedBooks(newUnplacedBooks)
+        }
+    }
 
     return <LibraryContext.Provider value={value}>{children}</LibraryContext.Provider>;
 };

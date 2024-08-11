@@ -1,4 +1,4 @@
-import {LibraryContext} from "../LibraryProvider/LibraryProvider.tsx";
+import {libraryActions, LibraryContext} from "../LibraryProvider/LibraryProvider.tsx";
 import {useContext, useEffect} from "react";
 
 
@@ -6,12 +6,10 @@ const Library = () => {
     const {
         books,
         shelves,
-        setShelves,
         unplacedBooks,
-        setUnplacedBooks
     } = useContext(LibraryContext);
 
-    console.log("Library");
+    console.log('Library')
 
     useEffect(() => {
         const newShelves = [...shelves];
@@ -26,8 +24,8 @@ const Library = () => {
             }
         }
 
-        setShelves(newShelves);
-        setUnplacedBooks(remainingBooks);
+        libraryActions.setShelves(newShelves);
+        libraryActions.setUnplacedBooks(remainingBooks);
     }, [books]);
 
     return (

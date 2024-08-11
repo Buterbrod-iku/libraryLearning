@@ -1,5 +1,5 @@
 import {useContext, useState} from 'react';
-import {LibraryContext} from "../LibraryProvider/LibraryProvider.tsx";
+import {libraryActions, LibraryContext} from "../LibraryProvider/LibraryProvider.tsx";
 import { IBook } from '../../Helper/generateBooks.ts';
 
 interface IVisitor {
@@ -7,15 +7,15 @@ interface IVisitor {
 }
 
 const Visitor = ({name}: IVisitor) => {
-    const {shelves, issuedBooks, setIssuedBooks} = useContext(LibraryContext);
-    const [selectedBooks, setSelectedBooks] = useState([]);
+    const {shelves, issuedBooks} = useContext(LibraryContext);
+    const [selectedBooks, setSelectedBooks] = useState<IBook[]>([]);
 
-    console.log("Visitor");
+    console.log('Visitor')
 
     const handleSelectBook = (book: IBook) => {
         if (selectedBooks.length < 7 && !issuedBooks.some(b => b.book.id === book.id)) {
             setSelectedBooks([...selectedBooks, book]);
-            setIssuedBooks([...issuedBooks, { book, visitor: name }]);
+            libraryActions.setIssuedBooks([...issuedBooks, { book, visitor: name }]);
         }
     };
 

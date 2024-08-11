@@ -3,11 +3,13 @@ import Library from "./components/Library/Library.tsx";
 import Librarian from "./components/Librarian/Librarian.tsx";
 import Visitor from "./components/Visitor/Visitor.tsx";
 import VisitorBookList from "./components/VisitorBookList/VisitorBookList.tsx";
+import TestRender from "./components/TestRender/TestRender.tsx";
 
 const App = () => {
     return (
         <LibraryProvider>
             <div>
+                <TestRender />
                 <h1>Library System</h1>
                 <Library />
                 <hr/>
