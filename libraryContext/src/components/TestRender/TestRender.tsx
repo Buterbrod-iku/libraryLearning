@@ -13,7 +13,7 @@ const TestRender = () => {
 
     return (
         <div>
-            <button onClick={setTestRender}>hello</button>
+            <button onClick={setTestRender}>TEST Render</button>
         </div>
     );
 };
