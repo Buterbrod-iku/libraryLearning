@@ -21,14 +21,18 @@ const Visitor = ({name}: IVisitor) => {
 
     return (
         <div>
-            <h2>{name}</h2>
-            <h3>Select Books:</h3>
+            <h2 style={{ textAlign: 'center'}}>{name}</h2>
+            <h3  style={{ textAlign: 'center'}}>Select Books:</h3>
             {shelves.map((shelf, i) => (
                 <div key={i}>
-                    <h4>Shelf {i + 1}</h4>
+                    <h4  style={{ textAlign: 'center', color: 'red'}}>Shelf {i + 1}</h4>
                     {shelf.map((row, j) => (
                         <div key={j}>
-                            <ul>
+                            <ul style={{
+                                width: '100vw',
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(5, 1fr)',
+                            }}>
                                 {row.map((book) => (
                                     <li key={book.id}>
                                         {book.title} by {book.author}

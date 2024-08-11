@@ -18,11 +18,19 @@ const Librarian = () => {
             </ul>
 
             <h3>Unplaced Books:</h3>
-            <ul>
-                {unplacedBooks.map((book) => (
-                    <li key={book.id}>{book.title} by {book.author}</li>
-                ))}
-            </ul>
+            <div>
+                <ul style={{
+                    width: '100vw',
+                    display: 'grid',
+                    flexWrap: 'wrap',
+                    gridTemplateColumns: 'repeat(7, 1fr)',
+                }}>
+                    {unplacedBooks.map((book) => (
+                        <li key={book.id}>{book.title} by {book.author}</li>
+                    ))}
+                </ul>
+            </div>
+
         </div>
     );
 };

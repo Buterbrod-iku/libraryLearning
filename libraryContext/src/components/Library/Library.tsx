@@ -31,21 +31,27 @@ const Library = () => {
     return (
         <div>
             <h1>Library</h1>
-            {shelves.map((shelf, i) => (
-                <div key={i}>
-                    <h3>Shelf {i + 1}</h3>
-                    {shelf.map((row, j) => (
-                        <div key={j}>
-                            <h4>Row {j + 1}</h4>
-                            <ul>
-                                {row.map((book) => (
-                                    <li key={book.id}>{book.title} by {book.author}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                </div>
-            ))}
+
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(5, 1fr)',
+            }}>
+                {shelves.map((shelf, i) => (
+                    <div key={i}>
+                        <h3>Shelf {i + 1}</h3>
+                        {shelf.map((row, j) => (
+                            <div key={j}>
+                                <h4>Row {j + 1}</h4>
+                                <ul>
+                                    {row.map((book) => (
+                                        <li key={book.id}>{book.title} by {book.author}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
